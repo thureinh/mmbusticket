@@ -15,6 +15,7 @@ class CreateBusesTable extends Migration
     {
         Schema::create('buses', function (Blueprint $table) {
             $table->id();
+            $table->string('license')->unique()->nullable(false);
             $table->foreignId('company_id')
                   ->nullable(false)
                   ->constrained()
