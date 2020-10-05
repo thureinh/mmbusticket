@@ -18,4 +18,8 @@ class Bus extends Model
     {
         return $this->belongsTo('App\Company');
     }
+    public function seats()
+    {
+        return $this->hasMany('App\Seat');
+    }
 }

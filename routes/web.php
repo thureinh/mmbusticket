@@ -14,21 +14,47 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/home');
 });
 
-Auth::routes(['verify' => true]);
+//Localization
+Route::get('/lang/{locale}', 'LanguageController@index');
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Test
 Route::get('/test', function () {
-	return view('test.gallery');
+	$booking = App\Booking::find(1);
+	$itinerary = App\Itinerary::find(1);
+	$seats = [13,14,15];
+    return new App\Mail\TicketSent($booking, $itinerary, $seats);
 });
-Route::get('dashboard', function() {
-	return view('backend.dashboard');
-})->name('dashboard');
 
-Route::resources([
-	'locations' => 'LocationController',
-	'companies' => 'CompanyController',
-	'buses' => 'BusController',
-]);
+//PHP information
+Route::get('/phpinfo', function () {
+	return phpinfo();
+});
+
+//Frontend
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/detailSearch', 'HomeController@detailSearch')->name('detailSearch');
+Route::get('/customerform', 'HomeController@customerform')->name('customerform');
+Route::get('/itinerary/{id}', 'HomeController@itineraryDetail')->name('itineraryDetail');
+Route::post('/search', 'HomeController@search')->name('search');
+Route::post('/book', 'HomeController@book')->name('book');
+
+//Api
+
+//Auth
+Auth::routes(['verify' => true]);
+Route::middleware(['auth', 'verified'])->group(function () {
+	Route::get('dashboard', function() {
+		return view('backend.dashboard');
+	})->name('dashboard');
+
+	Route::resources([
+		'locations' => 'LocationController',
+		'companies' => 'CompanyController',
+		'buses' => 'BusController',
+		'itineraries' => 'ItineraryController',
+		'bookings' => 'BookingController'
+	]);
+});

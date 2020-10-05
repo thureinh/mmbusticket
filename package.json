@@ -23,5 +23,14 @@
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10"
     },
-    "dependencies": {}
+    "dependencies": {
+        "@fullcalendar/daygrid": "^5.3.2",
+        "@fullcalendar/interaction": "^5.3.1",
+        "@fullcalendar/timegrid": "^5.3.1",
+        "@fullcalendar/vue": "^5.3.1",
+        "fs": "0.0.1-security",
+        "moment": "^2.29.0",
+        "net": "^1.0.2",
+        "tls": "0.0.1"
+    }
 }

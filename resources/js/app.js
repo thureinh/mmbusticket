@@ -6,7 +6,6 @@
 
 require('./bootstrap');
 
-
 window.Vue = require('vue');
 
 /**
@@ -21,6 +20,10 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('itinerary-create', require('./components/ItineraryCreateComponent.vue').default);
+Vue.component('schedule-component', require('./components/ScheduleComponent.vue').default);
+Vue.component('seat-component', require('./components/SeatComponent.vue').default);
+Vue.component('booking-component', require('./components/BookingComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

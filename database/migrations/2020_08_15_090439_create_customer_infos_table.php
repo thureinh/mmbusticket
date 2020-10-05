@@ -24,11 +24,6 @@ class CreateCustomerInfosTable extends Migration
             $table->string('phone_no')->nullable(false);
             $table->text('note')->nullable(true);
             $table->boolean('is_foreigner')->nullable(false);
-            $table->unsignedTinyInteger('seat_qty')->default(1);
-            $table->foreignId('itinerary_id')
-                  ->nullable(false)
-                  ->constrained()
-                  ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Storage;
 class CompanyController extends Controller
 {
     use RegistersUsers;
+    public function __construct()
+    {
+        $this->middleware('role:admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -127,7 +131,7 @@ class CompanyController extends Controller
             $company->user->name = $request->input('name');
             $company->user->email = $request->input('email');
             if ($request->hasFile('image')) {
-                Storage::disk('public')->delete($location->image);
+                Storage::disk('public')->delete($company->image);
                 $company->logo = $request->file('image')->store('images/logos', 'public');  
             }
             $company->name = $request->input('company_name');

@@ -103,7 +103,7 @@ $(document).ready(function(){
 		    }
 		},
 		onRemove: function(fn, file){
-			if($('#removed_photos'))
+			if($('#removed_photos').length)
 			{
 				let already_existings = JSON.parse($('#removed_photos').val());
 				let removed_photo = file.path;

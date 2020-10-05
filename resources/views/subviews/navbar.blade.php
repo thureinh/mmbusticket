@@ -11,7 +11,7 @@
       <!-- Navbar Header-->
       <div class="navbar-header">
         <!-- Navbar Brand --><a href="index.html" class="navbar-brand d-none d-sm-inline-block">
-          <div class="brand-text d-none d-lg-inline-block"><span>Bootstrap </span><strong>Dashboard</strong></div>
+          <div class="brand-text d-none d-lg-inline-block">@hasrole('admin')<span>Admin</span>@else<span>{{ Auth::user()->company->name }}@endhasrole&nbsp;</span><strong>Dashboard</strong></div>
           <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div></a>
         <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
       </div>
@@ -20,7 +20,7 @@
         <!-- Search-->
         <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
         <!-- Notifications-->
-        <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell-o"></i><span class="badge bg-red badge-corner">12</span></a>
+        <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fas fa-bell"></i><span class="badge bg-red badge-corner">12</span></a>
           <ul aria-labelledby="notifications" class="dropdown-menu">
             <li><a rel="nofollow" href="#" class="dropdown-item"> 
                 <div class="notification">
@@ -46,7 +46,7 @@
           </ul>
         </li>
         <!-- Messages                        -->
-        <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope-o"></i><span class="badge bg-orange badge-corner">10</span></a>
+        <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fas fa-envelope"></i><span class="badge bg-orange badge-corner">10</span></a>
           <ul aria-labelledby="notifications" class="dropdown-menu">
             <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
                 <div class="msg-profile"> <img src="{{asset('admin_template/img/avatar-1.jpg')}}" alt="..." class="img-fluid rounded-circle"></div>
@@ -67,14 +67,11 @@
           </ul>
         </li>
         <!-- Languages dropdown    -->
-        <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="{{asset('admin_template/img/flags/16/GB.png')}}" alt="English"><span class="d-none d-sm-inline-block">English</span></a>
-          <ul aria-labelledby="languages" class="dropdown-menu">
-            <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="{{asset('admin_template/img/flags/16/DE.png')}}" alt="English" class="mr-2">German</a></li>
-            <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="{{asset('admin_template/img/flags/16/FR.png')}}" alt="English" class="mr-2">French                                         </a></li>
-          </ul>
-        </li>
         <!-- Logout    -->
-        <li class="nav-item"><a href="login.html" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+        <li class="nav-item"><a href="#" class="nav-link logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();"> <span class="d-none d-sm-inline">Logout</span><i class="fas fa-sign-out-alt"></i></a></li>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+          @csrf
+        </form>
       </ul>
     </div>
   </div>

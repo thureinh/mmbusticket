@@ -1,5 +1,5 @@
 @extends('layouts.backendtemplate')
-@section('title', 'create')
+@section('title', 'Buses')
 @section('content')
   <!-- Page Header-->
   <header class="page-header">
@@ -83,7 +83,17 @@
 $(document).ready(function() {  
   var datatable = $('#location_table').DataTable( {
     data: @json($buses),
+    columnDefs: [ {
+        "searchable": false,
+        "orderable": false,
+        "targets": 0,
+        "width": "5%"
+    } ],
     columns: [
+        {
+          data:null,
+          class: "text-center"
+        },
         { 
           title: "License",
           class: "text-center",
@@ -104,6 +114,13 @@ $(document).ready(function() {
           data: function(data, type, dataToSet){
             return "English: " + data.bustype.en_name + " | Myanmar: " + data.bustype.mm_name; 
           },
+          searchable: true,
+          orderable: true
+        },
+        {
+          title: "Seats",
+          class: "text-center",
+          data: "nos",
           searchable: true,
           orderable: true
         },
@@ -136,6 +153,11 @@ $(document).ready(function() {
         }
     ]
   });
+  datatable.on( 'order.dt search.dt', function () {
+        datatable.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            cell.innerHTML = i+1;
+        } );
+  } ).draw();
   const deleteLocation = url => {
     return fetch(url, {
       method: 'DELETE',

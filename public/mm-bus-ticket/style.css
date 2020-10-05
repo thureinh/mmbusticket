@@ -1,0 +1,72 @@
+body{
+	margin: 0;
+	padding: 0;
+	background-color: #f8f9f9;
+    font-family: 'Poiret One', cursive;
+    font-family: 'Arapey', serif;
+}
+.booking{
+	margin-top: 100px;
+	margin-bottom: 20px;
+	/*background-image: url('c1.jpg');*/
+}
+.poster{
+	padding: 35px 20px 20px 20px;
+}
+h4{
+	font-weight: bold;
+}
+.divider{
+	width: 10%;
+	border: none;
+	height: 2px;
+	background-color: gold;
+
+}
+.service,.popular{
+	background-color: white;
+}
+.sticky{
+	  /*position: -webkit-sticky;*/
+  	  /*position: sticky;*/
+  	  /*top: 0;*/
+  	  background-color: rgba(255,255,255,0.5);
+      /*z-index: 4;*/
+}
+#logo{
+	width: 65px;
+	height: 45px;
+}
+#information ul li{
+	list-style: none;
+	margin: 8px;
+}
+h5{
+	font-weight: bold;
+}
+#information ul li a{
+	text-decoration: none;
+	display: block;
+	color:  #808b96;
+}
+#btninfo ul li{
+	list-style: none;
+	margin: 15px;
+}
+#btninfo ul li a{
+	display: block;
+	color:  #808b96;
+	font-size: 15px;
+}
+.choose{
+	background-color: blue;
+	color: #fff;
+}
+
+.choosen{
+	background-color: gray;
+}
+
+.avaliable{
+	background-color: #ccc;
+}

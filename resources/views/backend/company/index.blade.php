@@ -105,8 +105,20 @@
 $(document).ready(function() {  
   var datatable = $('#location_table').DataTable( {
     data: @json($companies),
+    columnDefs: [ {
+            "searchable": false,
+            "orderable": false,
+            "targets": 0,
+            "width": "5%"
+    } ],
     columns: [
         {
+          data:null,
+          class: "text-center"
+        },
+        {
+          title: "Logo",
+          class: "text-center",
           data: null,
           render: function(data,type,row){
                return '<div class="d-flex justify-content-center"><img src="' + data.logo + '",width=60px, height=60px /></div>'},
@@ -176,6 +188,11 @@ $(document).ready(function() {
         }
     ]
   });
+  datatable.on( 'order.dt search.dt', function () {
+        datatable.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            cell.innerHTML = i+1;
+        } );
+  } ).draw();
   const deleteLocation = url => {
     return fetch(url, {
       method: 'DELETE',

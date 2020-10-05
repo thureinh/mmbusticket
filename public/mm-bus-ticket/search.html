@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search/Online MM Ticket</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Bus Ticket
+	</title>
+	<script type="text/javascript" src="bootstrap/js/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="bootstrap/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Arapey|Poiret+One&display=swap" rel="stylesheet">
+	<script type="text/javascript" src="jq.js"></script>
+</head>
+<body>
+	<!-- nav -->
+	<nav class="navbar navbar-expand-lg bg-light navbar-light py-3 shadow">
+		<div class="container">
+			<a href="index.html" class="navbar-brand" style="font-family: 'Cinzel Decorative', cursive; font-weight: bold; font-size: 30px; color:  #e74c3c ;"><img src="image/logo1.jfif" id="logo" class="mr-4">Online MM Ticket</a>
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#myNav">
+				<span class="navbar-toggler-icon">	
+				</span>
+			</button>
+			<div id="myNav" class="collapse navbar-collapse">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
+					<li class="nav-item" id="routebtn"><a class="nav-link" href="#route">ROUTE</a></li>
+					<li class="nav-item"><a href="#gallery" class="nav-link">GALLERY</a></li>
+					<li class="nav-item"><a class="nav-link" href="contact.html">CONTACT</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- main content -->
+	<div class="container">
+		<!-- search form -->
+		<div class="card my-2 text-left">
+			<div class="card-header">
+				<h5 style="font-weight: normal;">Search Trip</h5>
+			</div>
+			<div class="card-body">
+				<form>
+					<div class="row">
+						<div class="form-group col-12 col-md-3">
+							<label for="leavingfrom">Leaving From</label>
+							<select class="form-control" id="leavingfrom1" required="required" name="leavingfrom">
+								<option disabled="disabled">Select</option>
+								<option value="mandalay">Mandalay</option>
+								<option value="muse">Muse</option>
+								<option value="yangon">Yangon</option>
+								<option value="lashio">Lashio</option>
+							</select>		
+						</div>
+						<div class="form-group col-12 col-md-3">
+							<label for="goingto">Going To</label>
+							<select class="form-control" id="goingto1" required="required">
+								<option disabled="disabled">Select</option>
+								<option value="mandalay">Mandalay</option>
+								<option value="muse">Muse</option>
+								<option value="yangon">Yangon</option>
+								<option value="lashio">Lashio</option>
+							</select>
+						</div>
+						<div class="form-group col-6 col-md">
+							<label for="depaturedate">Depature Date</label>
+							<input type="Date" name="date" id="departuredate1" class="form-control" placeholder="Pick a Date" required="required">	
+						</div>
+						<div class="form-group col-6 col-md">
+							<label for="noseats">No of Seats</label>
+							<select class="form-control" id="noseats1" required="required" name="noseats">
+								<option disabled="disabled">Select</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
+						</div>
+						<div class="form-group col-6 col-md">
+							<label for="nationality">Nationality</label>
+							<select class="form-control" id="nationality1" required="required" name="nationality">
+								<option disabled="disabled">Select</option>
+								<option value="Myanmar">Myanmar</option>
+								<option value="Foreign">Foreign</option>
+							</select> 
+						</div>
+						<div class="form-group col-6 col-md">
+							<label class="text-light">.</label>
+							<button class="btn btn-outline-info form-control" type="submit" id="submit1">SearchNow</button>
+						</div>
+					</div>		
+				</form>
+			</div>
+		</div>
+		<!-- time category -->
+		<div class="row mb-2">
+			<div class="col-lg-3 col-md-3 col-sm-12 d-none d-md-block">
+				<div class="card">
+					<div class="card-header">
+						<h5>Time</h5>
+					</div>
+					<div class="card-body">
+						<input type="radio" name="time_option" class="time_option mr-2" id="time_option_any" value="" checked=""><label>Anytime</label><br>
+						<input type="radio" name="time_option" class="time_option mr-2" id="time_option_am" value="AM"><label>Day Bus</label><br>
+						<input type="radio" name="time_option" class="time_option mr-2" id="time_option_pm" value="PM"><label>Night Bus</label><br>
+					</div>
+				</div>
+			</div>
+		<!-- show routes bus -->
+			<div class="col-lg-9 col-md-9 col-sm-12">
+				<div class="card my-1">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-4 col-12 my-3">
+								04.00PM <span>-</span>Normal Bus<br>
+								<p class="my-1">Yangon-Mandalay</p>
+								<p>Time:<span class="mx-2">0.4.00PM</span>Evening Bus</p>
+							</div>
+							<div class="col-md-4 col-6 text-center my-3">
+								<img src="image/shweman.jfif" width="100px" height="50px;">
+								<p class="my-2">Shwe Mandalar Express</p>
+							</div>
+							<div class="col-md-4 col-6 text-center">
+								<p class="text-info" style="font-size:25px;">68000MMK</p>
+								<p>4seats <span>x</span>17000</p>
+								<button class="btn btn-info text-light">Select Seats</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card my-1">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-4 col-12 my-3">
+								04.00PM <span>-</span>Normal Bus<br>
+								<p class="my-1">Yangon-Mandalay</p>
+								<p>Time:<span class="mx-2">0.4.00PM</span>Evening Bus</p>
+							</div>
+							<div class="col-md-4 col-6 text-center my-3">
+								<img src="image/shweman.jfif" width="100px" height="50px;">
+								<p class="my-2">Shwe Mandalar Express</p>
+							</div>
+							<div class="col-md-4 col-6 text-center">
+								<p class="text-info" style="font-size:25px;">68000MMK</p>
+								<p>4seats <span>x</span>17000</p>
+								<button class="btn btn-info text-light">Select Seats</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card my-1">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-4 col-12 my-3">
+								04.00PM <span>-</span>Normal Bus<br>
+								<p class="my-1">Yangon-Mandalay</p>
+								<p>Time:<span class="mx-2">0.4.00PM</span>Evening Bus</p>
+							</div>
+							<div class="col-md-4 col-6 text-center my-3">
+								<img src="image/shweman.jfif" width="100px" height="50px;">
+								<p class="my-2">Shwe Mandalar Express</p>
+							</div>
+							<div class="col-md-4 col-6 text-center">
+								<p class="text-info" style="font-size:25px;">68000MMK</p>
+								<p>4seats <span>x</span>17000</p>
+								<button class="btn btn-info text-light">Select Seats</button>
+							</div>
+						</div>
+					</div>
+				</div>d
+			</div>
+		</div>
+	</div>
+	<!-- footer -->
+	<footer class="site-footer text-light" style="background-color:#283747;">
+		<div class="footer-widgets">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-md-6 col-lg-4 mb-md-4 mb-lg-0">
+						<div class="foot-contact my-3">
+							<h5>Contact</h5>
+							<span style="color:#808b96;" ><i class="fa fa-phone mr-2"></i>09-761051414 </span>
+							<br>
+							<br/>
+							<h5>We accept</h5>
+							<img src='image/accept.png' alt="">
+						</div>
+					</div>
+					<div class="col-12 col-md-6 col-lg-4 my-3" id="information">
+						<h5>Information</h5>
+						<ul>
+							<li><a href="/retrieve">Find/Print Your Ticket </a></li>
+							<li><a href='/article/mpu-ecommerce'>How to open MPU Ecommerce </a></li>
+							<li><a href='/article/how-to-buy-with-bank-transfer'>How to buy using bank transfer </a></li>
+							<li><a href="/terms">Terms & Conditions </a></li>
+							<li><a href="/privacy">Privacy Policy </a></li>
+						</ul>
+					</div>
+					<div class="col-12 col-md-6 col-lg-4 my-3" id="btninfo">
+						<h5>Online MM Ticket</h5>
+						<ul>
+							<li><a href="index.html">HOME</a></li>
+							<li><a href="#route">ROUTE</a></li>
+							<li><a href="#gallery">GALLERY</a></li>
+							<li><a href="">CONTACT</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bar" style="background-color: #17202a; height: 50px;">
+			<div class="container text-center" style="padding: auto;">
+				<p class="m-0 py-2">
+					&copy; 2019 Online MM Ticket
+				</p>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

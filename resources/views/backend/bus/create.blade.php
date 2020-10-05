@@ -1,5 +1,5 @@
 @extends('layouts.backendtemplate')
-@section('title', 'create')
+@section('title', 'Create Bus')
 @section('stylesheet')
   <link href="{{asset('plugins/jQuery.filer/css/jquery.filer.css')}}" type="text/css" rel="stylesheet" />
   <link href="{{asset('plugins/jQuery.filer/css/themes/jquery.filer-dragdropbox-theme.css')}}" type="text/css" rel="stylesheet" />
@@ -42,21 +42,14 @@
                       <div class="invalid-feedback"><strong>{{ $message }}</strong></div>
                     @enderror
                 </div>
-                <div class="form-group col-4">
-                  <label class="form-control-label">Company</label>
-                    <select name="company" class="form-control mb-3 @error('company') is-invalid @enderror">
-                      <option value>Chosse a Company</option>
-                      @foreach($companies as $company)
-                        <option value="{{$company->id}}" @if($company->id == old('company')){{'selected'}}@endif>
-                          {{$company->name}}
-                        </option>
-                      @endforeach
-                    </select>
-                    @error('company')
+                <div class="form-group col-2">
+                  <label class="form-control-label">Seats</label>
+                    <input type="number" min="1" max="100" name="nos" class="form-control mb-3 @error('nos') is-invalid @enderror" value="{{ old('nos') }}">
+                    @error('nos')
                       <div class="invalid-feedback"><strong>{{ $message }}</strong></div>
                     @enderror
                 </div>
-                <div class="form-group col-4">
+                <div class="form-group col-5">
                   <label class="form-control-label">Bus Type</label>
                     <select name="bustype" class="form-control mb-3 @error('bustype') is-invalid @enderror">
                       <option value>Choose a Bus Type</option>
@@ -85,7 +78,7 @@
               <div class="form-group row mt-3">
                 <div class="col-sm-4 offset-sm-3">
                   <a href="{{ route('buses.index') }}" class="btn btn-secondary btn-lg">Back</a>
-                  <button type="submit" class="btn btn-primary btn-lg">Add Company</button>
+                  <button type="submit" class="btn btn-primary btn-lg">Add Bus</button>
                 </div>
               </div>
             </form>

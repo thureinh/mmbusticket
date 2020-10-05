@@ -24,7 +24,7 @@ class CreateItineraryLocationTable extends Migration
                   ->constrained()
                   ->onDelete('cascade');
             $table->unsignedTinyInteger('sequence_number');
-            $table->mediumText('extra_info');
+            $table->mediumText('extra_info')->nullable(true);
             $table->timestamps();
         });
     }

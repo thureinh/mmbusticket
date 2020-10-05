@@ -1,9 +1,22 @@
-@extends('layouts.app')
-
+@extends('layouts.customauthtemplate')
+@section('title', 'Login')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<div class="row">
+    <!-- Logo & Information Panel-->
+    <div class="col-lg-6">
+      <div class="info d-flex align-items-center">
+        <div class="content">
+          <div class="logo">
+            <h1>Dashboard</h1>
+          </div>
+          <p>It's fine to celebrate success but it is more important to heed the lessons of failure.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Form Panel    -->
+    <div class="col-lg-6 bg-white">
+      <div class="form d-flex align-items-center">
+        <div class="content">
             <div class="card">
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
@@ -16,8 +29,8 @@
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                            <div class="col-md-8">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" readonly>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -30,8 +43,8 @@
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                            <div class="col-md-8">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" autofocus>
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -44,7 +57,7 @@
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
@@ -60,6 +73,7 @@
                 </div>
             </div>
         </div>
+      </div>
     </div>
 </div>
 @endsection

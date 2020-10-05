@@ -18,7 +18,7 @@ class CreateItinerariesTable extends Migration
             $table->dateTime('departure')->nullable(false);
             $table->boolean('foreigner_allowrance')->default(true);
             $table->time('duration')->nullable(false);
-            $table->unsignedTinyInteger('price')->nullable(false);
+            $table->unsignedInteger('price')->nullable(false);
             $table->timestamps();
         });
     }
